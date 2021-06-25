@@ -1,0 +1,7 @@
+body {
+    background-color: beige;
+}
+
+.hello h1:first-child {
+    color: blue;
+}
