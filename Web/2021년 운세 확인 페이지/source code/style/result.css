@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap');
+
+* {
+    font-family: 'Yeon Sung', cursive;
+}
+
+body {
+    background-color: ivory;
+    background-image: url("../images/pattern.png");
+    background-position: 600px 100px;
+    background-repeat: no-repeat;
+}
+
+.item {
+    color: white;
+    font-size: 32px;
+    text-align: center;
+    display: block;
+    width: 200px;
+    height: 200px;
+    border: 3px solid darkred;
+    border-radius: 100%;
+    box-shadow: 0 0 10px 0 darkred;
+    margin: 10px;
+    background-color: darkred;
+    background-image: url("../images/btn-1.png");
+    background-size: cover;
+    background-position: center;
+    margin: 80px auto 50px auto;
+}
+
+.btn-title,
+.btn-content,
+.btns {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.item-title > h1 {
+    color: darkred;
+    text-align: center;
+    font-size: 32px;
+}
+
+.item-content > p {
+    color: darkred;
+    text-align: center;
+    font-size: 32px;
+    line-height: 48px;
+}
+
+.btns > button {
+    font-size: 20px;
+    width: 150px;
+    height: 50px;
+    border: 2px solid darkred;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px 0 5px;
+}
+
+.btn-back {
+    color: darkred;
+    background-color: white;
+}
+
+.btn-share {
+    color: white;
+    background-color: darkred;
+}
+
+@media screen and (max-width: 780px) {
+    body {
+        background-color: green;
+    }
+}
