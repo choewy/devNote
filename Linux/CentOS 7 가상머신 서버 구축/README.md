@@ -6,7 +6,7 @@
 
 [1. VirtualBox 다운로드 및 설치](#1-virtualbox-다운로드-및-설치)
 
-[2. CentOS 7 (minimal) 다운로드](#2-centos-7(minimal)-다운로드)
+[2. CentOS 7 minimal 다운로드](#2-centos-7-minimal-다운로드)
 
 [3. CentOS 7 가상머신 설치](#3-centos-7-가상머신-설치)
 
@@ -18,7 +18,7 @@
 
 <br>
 
-## 1. VirtualBox 다운로드 및 설치
+## [1. VirtualBox 다운로드 및 설치](#목차)
 
 - VirtualBox는 Oracle에서 제공하는 무료 가상머신 실행 소프트웨어이다.
 - [여기](https://download.virtualbox.org/virtualbox/6.1.22/VirtualBox-6.1.22-144080-OSX.dmg) 를 클릭하여 `VirtualBox(6.1.22 - 2021.06.03. 최신버전)`을 다운로드한다.
@@ -26,14 +26,14 @@
 
 <br>
 
-## 2. CentOS 7(minimal) 다운로드
+## [2. CentOS 7 minimal 다운로드](#목차)
 
 - `CentOS 7 (minimal)`은 최소한의 기능으로만 구성되어 있는 버전이다.
 - [여기](http://mirror.navercorp.com/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-2009.iso) 를 클릭하여 `CentOS 7(x86_64-Minimal-2009)`를 다운로드한다.
 
 <br>
 
-## 3. CentOS 7 가상머신 설치
+## [3. CentOS 7 가상머신 설치](#목차)
 
 1. 새로운 가상머신 생성
 
@@ -73,7 +73,7 @@
 
   <br>
 
-## 4. CentOS 7 초기 설정 및 필수 패키지 설치
+## [4. CentOS 7 초기 설정 및 필수 패키지 설치](#목차)
 
 - 설치가 완료되면 재부팅 후 아래 표를 참고하여 CentOS 7 운영체제에 접속한다.
 
@@ -278,7 +278,7 @@ success
 
 <br>
 
-## 5. CentOS 7 원격접속 설정
+## [5. CentOS 7 원격접속 설정](#목차)
 
 - CentOS 7 원격접속을 위해 `openssh` 패키지를 설치한다.
 
@@ -349,7 +349,7 @@ group default qlen 1000
 
 <br>
 
-## 6. CentOS 7 기타 패키지 설치
+## [6. CentOS 7 기타 패키지 설치](#목차)
 
 ### 6.1. Python 3 설치
 
