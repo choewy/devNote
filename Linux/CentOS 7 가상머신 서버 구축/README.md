@@ -1,25 +1,44 @@
-# Linux (CentOS 7) 서버 구축
+# CentOS 7 가상머신 서버 구축
 
-## VirtualBox 다운로드 및 설치
+<br>
+
+## 목차
+
+[1. VirtualBox 다운로드 및 설치](#1-virtualbox-다운로드-및-설치)
+
+[2. CentOS 7 (minimal) 다운로드](#2-centos-7(minimal)-다운로드)
+
+[3. CentOS 7 가상머신 설치](#3-centos-7-가상머신-설치)
+
+[4. CentOS 7 초기 설정 및 필수 패키지 설치](#4-centos-7-초기-설정-및-필수-패키지-설치)
+
+[5. CentOS 7 원격접속 설정](#5-centos-7-원격접속-설정)
+
+[6. CentOS 7 기타 패키지 설치](#6-centos-7-기타-패키지-설치)
+
+<br>
+
+## 1. VirtualBox 다운로드 및 설치
 
 - VirtualBox는 Oracle에서 제공하는 무료 가상머신 실행 소프트웨어이다.
-
 - [여기](https://download.virtualbox.org/virtualbox/6.1.22/VirtualBox-6.1.22-144080-OSX.dmg) 를 클릭하여 `VirtualBox(6.1.22 - 2021.06.03. 최신버전)`을 다운로드한다.
-
 - 다운로드가 완료되면 설치 파일을 실행하여 VirtualBox를 설치한다.
 
-## CentOS 7 (minimal) 다운로드
+<br>
+
+## 2. CentOS 7(minimal) 다운로드
 
 - `CentOS 7 (minimal)`은 최소한의 기능으로만 구성되어 있는 버전이다.
-
 - [여기](http://mirror.navercorp.com/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-2009.iso) 를 클릭하여 `CentOS 7(x86_64-Minimal-2009)`를 다운로드한다.
-    
-## CentOS 7 가상머신 설치
+
+<br>
+
+## 3. CentOS 7 가상머신 설치
 
 1. 새로운 가상머신 생성
 
     - VirtualBox를 실행하고 `새로 만들기(N)`를 클릭한다.
-    
+
     - 아래 표를 참고하여 새로운 가상머신의 정보를 입력/설정하여 가상머신을 생성한다.
 
     |항목|내용|
@@ -33,6 +52,8 @@
     |하드 디스크 파일 종류|VDI(VirtualBox 디스크 이미지)|
     |물리적 하드 드라이브에 저장|동적 할당|
     |파일 위치 및 크기|파일 위치 : 가상머신의 폴더 지정<br>크기 : 최소 4GB 이상 지정|
+
+    <br>
 
 2. 가상머신에 CentOS 7 설치
 
@@ -49,22 +70,24 @@
     |네트워크 & 호스트 이름|이더넷 : 켬|
     
     - ROOT 암호를 설정하여야 설치가 완료되므로 ROOT 암호를 설정한다. (사용자는 별도로 생성하지 않아도 된다.)
-    
-        
-    
-## CentOS 7 초기 설정 및 필수 패키지 설치
-    
-설치가 완료되면 재부팅 후 아래 표를 참고하여 CentOS 7 운영체제에 접속한다.
+
+  <br>
+
+## 4. CentOS 7 초기 설정 및 필수 패키지 설치
+
+- 설치가 완료되면 재부팅 후 아래 표를 참고하여 CentOS 7 운영체제에 접속한다.
 
 |항목|내용|
 |------|------|
 |localhost login|root|
 |Password|초기 설정한 ROOT 비밀번호|
 
-### 1. yum 업데이트
+<br>
 
-CentOS 7의 대부분 패키지는 yum을 통해 설치하므로 yum을 최신 버전으로 업데이트한다.
-    
+### 4.1. yum 업데이트
+
+- CentOS 7의 대부분 패키지는 yum을 통해 설치하므로 yum을 최신 버전으로 업데이트한다.
+
 ```commandline
 [root@localhost ~]# yum update
    
@@ -85,7 +108,9 @@ Importing GPG key 0xF4A80EB5:
 Is this ok [y/N]: Y
 ```
 
-### 2. net-tools 설치
+<br>
+
+### 4.2. net-tools 설치
 
 - CentOS 7의 네트워크 정보에 접근하기 위해 `net-tools`를 설치한다.
 
@@ -99,7 +124,9 @@ Installed size: 917 k
 Is this ok [y/d/N]: Y
 ```
 
-### 3. MariaDB 설치
+<br>
+
+### 4.3. MariaDB 설치
 
 - MariaDB를 설치하기 위하여 repo를 생성한다.
 
@@ -149,7 +176,9 @@ MariaDB-common-10.4.19-1.el7.centos.x86_64
 MariaDB-server-10.4.19-1.el7.centos.x86_64
 ```
 
-### 4. MariaDB 초기 설정
+<br>
+
+### 4.4. MariaDB 초기 설정
 
 - MariaDB 실행
 
@@ -179,7 +208,9 @@ enabled
 [root@localhost ~]# /usr/bin/mysqladmin -u root password 'P@ssw0rd'
 ```
 
-### 5. MariaDB 외부 접속 설정
+<br>
+
+### 4.5. MariaDB 외부 접속 설정
 
 - MariaDB에 접속한다.
 
@@ -230,7 +261,9 @@ MariaDB[(none)]>GRANT ALL PRIVILEGES ON main.* TO 'user'@'%';
 MariaDB[(none)]>FLUSH PRIVILEGES;
 ```
 
-### 6. MariaDB 포트 방화벽 접근 허용 설정
+<br>
+
+### 4.6. MariaDB 포트 방화벽 접근 허용 설정
 
 - MariaDB의 기본 포트는 3306이고, 외부에서 해당 포트에 접근 가능하도록 방화벽 설정을 해주어야 한다.
 
@@ -243,7 +276,9 @@ success
 3306/tcp
 ```
 
-## CentOS 7 원격접속 설정
+<br>
+
+## 5. CentOS 7 원격접속 설정
 
 - CentOS 7 원격접속을 위해 `openssh` 패키지를 설치한다.
 
@@ -312,9 +347,11 @@ group default qlen 1000
 |------|------|------|
 |127.0.0.1|22|SSH|
 
-## CentOS 7 기타 패키지 설치
+<br>
 
-### 1. Python 3 설치
+## 6. CentOS 7 기타 패키지 설치
+
+### 6.1. Python 3 설치
 
 - yum 업데이트 시 Python이 설치되었으므로 Python의 버전을 확인한다.
 
@@ -347,7 +384,9 @@ Python 3.6.8
 pip 9.0.3 from /usr/lib/python3.6/site-packages (python 3.6)
 ```
 
-### 2. Git 설치
+<br>
+
+### 6.2. Git 설치
 
 - Github에 업로드한 코드를 불러오기 위하여 Git을 설치한다.
 
@@ -367,7 +406,9 @@ Complete!
 git version 1.8.3.1
 ```
 
-### 3. Apache 설치
+<br>
+
+### 6.3. Apache 설치
 
 - 웹 서버를 구동하기 위한 기본적인 웹 데몬인 Apache를 설치한다.
 
@@ -472,7 +513,9 @@ success
 </html>
 ```
 
-### 4. Apache & Github 연동
+<br>
+
+### 6.4. Apache & Github 연동
 
 - Github Repository Clone
 
